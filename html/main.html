@@ -5,33 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/modaltwo.css">
     <title>메인</title>
 </head>
 <body>
     워크 스페이스
+    <!--컬럼 부분-->
     <div id="boardParent"></div>
-
+    <!--카드 모달창 부분-->
     <div id="modal" class="modal-overlay" style="visibility: hidden;">
         <div class="modal-window">
+            <div class="close-area" >X</div>
             <div class="title" id="modal-title">
+            </div>
+            <div class="update-title" style="display: none;">
+            <input type="text" id="update-title-input"></input>
+            <button id="update-title-button">수정</button>
+            <button id="cancel-title-button">취소</button>
+            </div>
+
+            <div style="margin-left: 10px;">
+            <span>in column</span>
+            <span class="column-list" id="modal-column-list"></span>
+            </div>
+            
+            <div class="description">Description</div>
+            <div class="content" id="modal-content"></div>
+            <div class="update-content" style="display: none;">
+            <input type="text" id="update-content-input"></input>
+            <button id="update-content-button">수정</button>
+            <button id="cancel-content-button">취소</button>
+            </div>
+
+            <div style="margin-top: 5px; font-weight: bold;">기한 날짜</div>
+            <div class="content" id="modal-deadline"></div>
+            <div class="update-deadline" style="display: none;">
+            <input type="date" id="update-deadline-input"></input>
+            <button id="update-deadline-button">수정</button>
+            <button id="cancel-deadline-button">취소</button>
+            </div>
+
+            <div style="margin-top: 5px; font-weight: bold;">할당 유저</div>
+            <div class="content" id="modal-assignedUser" ></div>
+            <div class="update-assignedUser" style="display: none;">
+            <input type="text" id="update-assignedUser-input"></input>
+            <button id="update-assignedUser-button">수정</button>
+            <button id="cancel-assignedUser-button">취소</button>
+            </div>
+
+            <button class="change-color-button" style="margin-top: 10px;">색갈변경</button>
+            <div class="change-color-parent"  style="display: none;" >
+            <input class="change-color" type="color">
+            <button class="change-color-change-button" >변경</button>
+            <button class="change-color-cancel-button">취소</button>
+            </div>
+
+            <div class="comments">Comments</div>
+            <input class="add-comments" type="text" id="modal-add-comments-input"></input>
+            <button class="add-comments-button" id="modal-add-comments-button">추가</button>
+            <div id="modal-comments"></div>
+            <button class="delete-button">삭제</button>
+        </div>
+    </div>
+
+     <div id="modaltwo" class="modal-overlaytwo" style="display: none;">
+        <div class="modal-windowtwo">
+            <div class="close-areatwo">X</div>
+            <div class="titletwo">
                 <h2>모달</h2>
             </div>
             
-            <div class="column-list" id="modal-column-list">in list </div>
-            <div class="close-area" >X</div>
-            <div class="description">Description</div>
-            <div class="content" id="modal-content">
-                카드설명
+            <div class="contenttwo">
+                <p>가나다라마바사 아자차카타파하</p>
+                
             </div>
-            <div class="content" id="modal-deadline">완료일</div>
-            <div class="content" id="modal-assignedUser">할당유저</div>
-            <div class="comments">Comments</div>
-            <div class="content">댓글</div>
-            <div></div>
         </div>
     </div>
+    
+    <script src="../js/auth.js"></script>
     <script src="../js/constants.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/column.js"></script>
     <script src="../js/card-modal.js"></script>
 </body>
 
