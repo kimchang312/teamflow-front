@@ -348,6 +348,34 @@ function checkDeletObject(){
 
 const closeBtntTwo = modaltwo.querySelector(".close-areatwo")
 closeBtntTwo.addEventListener("click", e => {
-    modaltwo.style.display = "none"
+    unvisibleMakeCard();
 })
 
+const make_card_btn= document.querySelector(".make-card-button")
+make_card_btn.addEventListener("click",e=>{
+    unvisibleMakeCard();
+    const columnId= document.querySelector(".modal-windowtwo").id;
+    
+    fetch(`${main_sever}column/${columnId}/cards`,{
+    method:"POST",
+    headers:{
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+    },
+    body:JSON.stringify({
+        name:document.getElementById("make-card-title").value,
+        description:document.getElementById("make-card-content").value,
+        color:document.getElementById("make-card-color").value,
+        deadline:document.getElementById("make-card-date").value,
+        assignedUserId:Number(document.getElementById("make-card-assignedUser").value),
+    }),
+})
+.then(res=>{
+    location.reload();
+    return;
+})
+})
+
+function unvisibleMakeCard(){
+    modaltwo.style.display = "none"
+}

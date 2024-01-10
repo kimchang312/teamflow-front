@@ -24,7 +24,7 @@ function GetBoard(boardId/*:number*/){
                 let columnCild =document.createElement("div");
                 columnParent.appendChild(columnCild);
                 columnCild.innerHTML=`
-                <div class="one_column" ><div class="column-title" id="${i}Column" >
+                <div class="one_column" draggable="true" ondragover="dragoverColumn(event)" ondrop="dropColumn(event,${data.data.columns[i].id})"><div class="column-title" id="${i}Column" >
                 <div onclick="clickColumnTitle(${i})">
                 ${data.data.columns[i].name}
                 </div>
@@ -41,7 +41,7 @@ function GetBoard(boardId/*:number*/){
                     let cardCild=document.createElement("div");
                     cardParent.appendChild(cardCild);
                     cardCild.innerHTML=`
-                    <div onclick="cardModal(${el.id})" class="one_card" id="${el.id}Card" style="background-color:${el.color}" >${el.name} <br> 댓글:${el.comments.length}개</div>
+                    <div draggable="true" ondragover="dragoverCard(event)" ondrop="dropCard(event,${el.id})" onclick="cardModal(${el.id})" class="one_card" id="${el.id}Card" style="background-color:${el.color}" >${el.name} <br> 댓글:${el.comments.length}개</div>
                     `
                 })
 
@@ -49,7 +49,8 @@ function GetBoard(boardId/*:number*/){
                 let addCardButton=document.createElement("div");
                 cardParent.appendChild(addCardButton);
                 addCardButton.innerHTML=`
-                <div onclick="makeCard(${data.data.columns[i].id})"class="add_card_button" id="oneAddCardButton" style="text-align: left">+카드추가하기<div>
+                <div onclick="makeCard(${data.data.columns[i].id})"class="add_card_button" id="oneAddCardButton" style="text-align: left">+카드추가하기</div>
+                <button onclick="deleteColumn(${data.data.columns[i].id})"class="delete-column-button" style="float: right;margin-top:10px">삭제</button>
                 `
             }
             
@@ -80,6 +81,7 @@ function cardModal(cardId){
         document.getElementById("modal-content").innerHTML=`${data.describe}`
         document.getElementById("modal-deadline").innerHTML=`${data.deadline}`
         document.getElementById("modal-assignedUser").innerHTML=`${data.assignedUserName}`
+
 
         if(!data.comments.length){
             document.getElementById("modal-comments").innerHTML=``;

@@ -9,10 +9,45 @@
     <title>메인</title>
 </head>
 <body>
-    워크 스페이스
     <!--컬럼 부분-->
+    <!--<form action="#">
+        <select name="user" id="userlang">
+          <option id="one-user">user</option>
+        </select>
+        <input type="button" value="수정" />
+      </form> 안쓸거 같은 부분 후에 삭제-->
+    <div class="create-column"> <p class="create-column-text-button"  id="create-column-inboard">+컬럼추가하기</p>
+        <div class="create-column-parent" style="display: none;">
+        <input  id="create-column-input" type="text" ></input>
+        <button id="create-column-button">생성</button>
+        <button id="cancel-create-column-button">취소</button>
+        </div>
+    </div>
     <div id="boardParent"></div>
+    
     <!--카드 모달창 부분-->
+    <div id="modaltwo" class="modal-overlaytwo" style="display: none;" >
+        <div class="modal-windowtwo">
+            <div class="close-areatwo">X</div>
+            <div>카드 만들기</div>
+            <div class="titletwo" > 
+            <input type="text" style="margin-top: 30px;" id="make-card-title" size="30" placeholder="제목">
+            </div>
+            <div class="contenttwo">
+            <input type="text" id="make-card-content" size="30" placeholder="내용" style="margin-top: 30px;">
+            </div>
+            <div class="colortwo">카드색갈
+            <input type="color" id="make-card-color" style="margin-top: 30px; margin-left: 5px;" >
+            </div>
+            <div class="datetwo">기한 날짜
+            <input type="date" id="make-card-date">
+            </div>
+            <div class="assignedUser">할당 유저
+            <input type="text" id="make-card-assignedUser" size="30" placeholder="유저id를 적어주세요">
+            </div>
+            <button style="float: right;" class="make-card-button">생성</button>
+        </div>
+    </div>
     <div id="modal" class="modal-overlay" style="visibility: hidden;">
         <div class="modal-window">
             <div class="close-area" >X</div>
@@ -68,19 +103,7 @@
         </div>
     </div>
 
-     <div id="modaltwo" class="modal-overlaytwo" style="display: none;">
-        <div class="modal-windowtwo">
-            <div class="close-areatwo">X</div>
-            <div class="titletwo">
-                <h2>모달</h2>
-            </div>
-            
-            <div class="contenttwo">
-                <p>가나다라마바사 아자차카타파하</p>
-                
-            </div>
-        </div>
-    </div>
+     
     
     <script src="../js/auth.js"></script>
     <script src="../js/constants.js"></script>

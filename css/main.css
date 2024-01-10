@@ -27,3 +27,19 @@
 .add_card_button{
     cursor: pointer;
 }
+.delete-column-button{
+    
+    background-color: rgb(255, 0, 0);
+}
+.create-column{
+    width: 200px;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid ;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    
+}
+.create-column-text-button{
+    cursor: pointer;
+}
